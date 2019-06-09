@@ -12,6 +12,8 @@
         <li class="nav-item">
           <a class="nav-link" href="{% url 'article:article_list' %}">文章</a>
           <a class="nav-link" href="{% url 'article:article_create' %}">写文章</a>
+          <a class="nav-link" href="{% url 'photo_gallery:list_images' %}">图片管理</a>
+            <a class="nav-link" href="{% url 'photo_gallery:gallery' %}">图片墙</a>
 
               {% if user.is_authenticated %}
         <!-- 如果用户已经登录，则显示用户名下拉框 -->
