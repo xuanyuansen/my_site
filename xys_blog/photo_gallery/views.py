@@ -3,22 +3,22 @@ from django.contrib.auth.decorators import login_required
 from django.http import JsonResponse
 from django.views.decorators.csrf import csrf_exempt
 from django.views.decorators.http import require_POST
-from django.db import models
 from .forms import ImageForm
 from .models import Image
 # Create your views here.
 
 
+@login_required(login_url='/userprofile/login/')
 def gallery(request):
     image_list = Image.objects.all()
-    for star in image_list.iterator():
-        print("object is", star)
-        print("url is", star.url)
-        print("title is", star.title)
-        print("slug is", star.slug)
-        print("image is ", star.image)
-        print("user is ", star.user)
-        print("created is", star.created)
+    # for star in image_list.iterator():
+    #     print("object is", star)
+    #     print("url is", star.url)
+    #     print("title is", star.title)
+    #     print("slug is", star.slug)
+    #     print("image is ", star.image)
+    #     print("user is ", star.user)
+    #     print("created is", star.created)
 
     return render(request, 'gallery/index.html', {
         'image_list': image_list
